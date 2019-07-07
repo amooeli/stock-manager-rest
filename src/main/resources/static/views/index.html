@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Stock Manager Page</title>
+</head>
+<body ng-app="App">
+
+<div class="container" ng-controller="StockManagerController" data-ng-init="getUser()">
+
+    <div class="caption">Stock</div>
+    <div id="table">
+        <div class="header-row row">
+            <span class="cell">Symbol</span>
+            <span class="cell">Name</span>
+            <span class="cell">Price</span>
+            <span class="cell">Quantity</span>
+            <span class="cell"></span>
+        </div>
+
+        <div class="row">
+            <span class="cell"><select ng-change="getStockInfo()" ng-model="selectedSymbol" ng-options="s for s in stockSymbols"></select></span>
+            <span class="cell"><input type="text" ng-model="stockName" readonly/></span>
+            <span class="cell"><input type="text" ng-model="stockPrice" readonly/></span>
+            <span class="cell"><input type="number" ng-model="stockQuantity" min="1"/></span>
+            <span class="cell">
+                <button ng-click="buyStock()" class="btn btn-sm btn-info">Buy</button>
+                <button ng-click="sellStock()" class="btn btn-sm btn-info">Sell</button>
+            </span>
+        </div>
+    </div>
+    <br/>
+    <div class="caption">User</div>
+    <div id="table">
+        <div class="header-row row">
+            <span class="cell">User ID</span>
+            <span class="cell">First Name</span>
+            <span class="cell">Last Name</span>
+            <span class="cell">Cash Balance</span>
+            <span class="cell"># Shares</span>
+            <span class="cell">Amount</span>
+            <span class="cell"></span>
+        </div>
+        <div class="row">
+            <span class="cell"><input type="text" ng-model="user.userId" readonly/></span>
+            <span class="cell"><input type="text" ng-model="user.firstName" /></span>
+            <span class="cell"><input type="text" ng-model="user.lastName" /></span>
+            <span class="cell"><input type="text" ng-model="user.cashBalance" readonly/></span>
+            <span class="cell"><input type="text" ng-model="user.numberOfShares" readonly/></span>
+            <span class="cell"><input type="number" ng-model="amount" min="0"/></span>
+            <span class="cell">
+                <button ng-click="addToBalance()" class="btn btn-sm btn-info">Add</button>
+                <button ng-click="removeFromBalance()" class="btn btn-sm btn-info">Remove</button>
+            </span>
+        </div>
+    </div>
+
+</div>
+
+    <script src="js/lib/angular.min.js"></script>
+    <script src="js/lib/ui-bootstrap-tpls-2.5.0.min.js"></script>
+    <script src="js/app/app.js"></script>
+    <script src="js/app/StockManagerController.js"></script>
+    <script src="js/app/UserService.js"></script>
+    <link rel="stylesheet" href="css/lib/bootstrap.min.css"/>
+    <link rel="stylesheet" href="css/app/app.css"/>
+</body>
+</html>
