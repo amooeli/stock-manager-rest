@@ -16,7 +16,7 @@
 	<properties>
 		<java.version>1.8</java.version>
 		<yahoofinance.version>3.14.0</yahoofinance.version>
-		<spring.data.jpa.version>2.0.9.RELEASE</spring.data.jpa.version>
+		<spring.data.jpa.version>2.1.0.RELEASE</spring.data.jpa.version>
 		<beanutils.version>1.8.3</beanutils.version>
 	</properties>
 
